@@ -15,9 +15,12 @@ BCodex is a fan-made web codex for *Brawlhalla* — browse every legend, filter 
 
 ## Tech Stack
 
-- **HTML / CSS / JavaScript** — no frameworks, built from scratch
-- **Google Fonts** — Bebas Neue & Inter
-- **JSON** — legend and lore data stored locally (`legends-data.js`, `brawlhalla_lore.json`)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white)
+
+No Framework
 
 ## Project Structure
 

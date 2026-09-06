@@ -41,7 +41,7 @@ for(let i = 0; i < Object.keys(legends).length; i++){
 }
 
 document.querySelector('.informations').querySelector('h1').textContent = name;
-document.querySelector('.informations').querySelector('h3').textContent = `${legends[index]["weapon1"]} — ${legends[index]["weapon2"]}`;
+document.querySelector('.informations').querySelector('h3').textContent = `${legends[index]["weapon1"]} - ${legends[index]["weapon2"]}`;
 
 let i = 0;
 let values = legends[index]["stats"];
