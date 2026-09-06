@@ -62,7 +62,7 @@ for(let i = 0; i < Object.keys(legends).length; i++){
         fetch('../Data/brawlhalla_lore.json')
         .then(res => res.json())
         .then(data => {
-            let content = data[legends[i]["name"]].replaceAll(/'''(.*?)'''/g, "<br><br><span class='title'>$1</span><br><br>").replaceAll("{{", '‘ ').replaceAll('}}', ' ’').replaceAll('|', ' - ').replaceAll('Dialogue', '<span class="bold">Dialogue</span>');
+            let content = data[legends[i]["name"]].replaceAll(/'''(.*?)'''/g, "<br><br><span class='title'>$1</span><br><br>").replaceAll("{{", '“ ').replaceAll('}}', ' ”').replaceAll('|', ' - ').replaceAll('Dialogue', '<span class="bold">Dialogue</span>');
             document.querySelector('.chest').querySelector('p').innerHTML = `<p>${content}</p>`;
             
         });
