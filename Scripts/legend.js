@@ -11,16 +11,12 @@ if(saved_theme){
     html.setAttribute('data-theme', saved_theme);
 }
 
-document.getElementById('theme-button').addEventListener('click', () =>{
-    if(html.getAttribute('data-theme') == 'dark'){
-        html.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-    }
-    else{
-        html.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-    }
-})
+if(html.getAttribute('data-theme') == 'dark'){
+    document.getElementById('theme-button').style.backgroundImage = "url(../Images/theme_icon.svg)";
+}
+else{
+    document.getElementById('theme-button').style.backgroundImage = "url(../Images/theme_icon_light_button.svg)";
+}
 
 // Adds functionnality to the switch theme button
 document.getElementById('theme-button').addEventListener('click', () =>{

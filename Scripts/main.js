@@ -11,32 +11,27 @@ if(saved_theme){
     html.setAttribute('data-theme', saved_theme);
 }
 
+if(html.getAttribute('data-theme') == 'dark'){
+    document.getElementById('theme-button').style.backgroundImage = "url(../Images/theme_icon.svg)";
+}
+else{
+    document.getElementById('theme-button').style.backgroundImage = "url(../Images/theme_icon_light_button.svg)";
+}
+
+// Adds functionnality to the switch theme button
 document.getElementById('theme-button').addEventListener('click', () =>{
     if(html.getAttribute('data-theme') == 'dark'){
         html.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
+        document.getElementById('theme-button').style.backgroundImage = "url(../Images/theme_icon_light_button.svg)";
     }
     else{
         html.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
+        
+        document.getElementById('theme-button').style.backgroundImage = "url(../Images/theme_icon.svg)";
     }
 })
-
-// Adds functionnality to the switch theme button
-function switch_theme(){
-    let theme = document.getElementById('stylesheet');
-
-    if(dark_theme_enabled){
-        theme.href = '../Styles/Index-light.css';
-        dark_theme_enabled = false;
-        stylesheet = document.styleSheets[1];
-    }
-    else{
-        theme.href = '../Styles/Index-dark.css';
-        dark_theme_enabled = true;
-        stylesheet = document.styleSheets[0];
-    }
-}
 
 let container = document.querySelector('.legends');
 
