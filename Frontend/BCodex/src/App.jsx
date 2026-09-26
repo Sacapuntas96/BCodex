@@ -1,0 +1,69 @@
+import { useState, useEffect } from 'react'
+import './App.css'
+import legends_data from './data.json'
+import weapons from './weapons.json'
+import LegendCard from './LegendCard'
+
+function App() {
+    const [selected_theme, ChangeTheme] = useState('dark')
+
+    const [selected_weapon, selectWeapon] = useState("All")
+
+    const filtered_legends = legends_data.filter(legend =>
+        selected_weapon === "All" ||
+        selected_weapon === legend["Weapon-1"] ||
+        selected_weapon === legend["Weapon-2"]
+    )
+
+    useEffect(() =>{
+        document.documentElement.setAttribute('data-theme', selected_theme)
+    }, [selected_theme])
+
+    return (
+        <>
+            <div className="content">
+                <div className="header">
+                    <h2>Brawlhalla Codex</h2>
+                    <h1>Every legend. <br/>Every weapon.<br/>One arena.</h1>
+                    <div className="search-container">
+                        <input type="text" placeholder="Search for a legend..." id="search-input"/>
+                        <button id="search-button">Search</button>
+                    </div>
+                    <div className="filters">
+                        <button
+                            className={selected_weapon === "All" ? "active" : ""}
+                            onClick={() => selectWeapon("All")}
+                        >
+                            All
+                        </button>
+                        {weapons.map(weapon => (
+                            <button
+                                key={weapon}
+                                className={selected_weapon === weapon ? "active" : ""}
+                                onClick={() => selectWeapon(weapon)}
+                            >
+                                {weapon}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+                <div className="chest">
+                    <div className="result-bar">
+                        <span className="result-count">
+                            {filtered_legends.length} {filtered_legends.length > 1 ? "Legends" : "Legend"}
+                        </span>
+                    </div>
+                    {filtered_legends.length === 0 && <h1>No elements were found.</h1>}
+                    <div className="legends">
+                        {filtered_legends.map(legend => (
+                            <LegendCard key={legend["ID"]} legend={legend} />
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <button id="theme-button" onClick={() => ChangeTheme(selected_theme == 'dark' ? 'light' : 'dark')}></button>
+        </>
+    )
+}
+
+export default App
