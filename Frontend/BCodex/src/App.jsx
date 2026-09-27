@@ -8,12 +8,16 @@ function App() {
     const [selected_theme, ChangeTheme] = useState('dark')
 
     const [selected_weapon, selectWeapon] = useState("All")
+    const [query, setQuery] = useState('')
+    const [search_query, setSearchQuery] = useState('')
 
     const filtered_legends = legends_data.filter(legend =>
-        selected_weapon === "All" ||
+        (selected_weapon === "All" ||
         selected_weapon === legend["Weapon-1"] ||
-        selected_weapon === legend["Weapon-2"]
+        selected_weapon === legend["Weapon-2"]) &&
+        legend["Name"].toLowerCase().includes(search_query.toLowerCase())
     )
+
 
     useEffect(() =>{
         document.documentElement.setAttribute('data-theme', selected_theme)
@@ -26,8 +30,15 @@ function App() {
                     <h2>Brawlhalla Codex</h2>
                     <h1>Every legend. <br/>Every weapon.<br/>One arena.</h1>
                     <div className="search-container">
-                        <input type="text" placeholder="Search for a legend..." id="search-input"/>
-                        <button id="search-button">Search</button>
+                        <input type="text" placeholder="Search for a legend..." id="search-input" value={query} onChange={(event) => {
+                            setQuery(event.target.value)
+                        }}
+                        onKeyDown={(event) => {
+                            if(event.key === "Enter"){
+                                setSearchQuery(query)
+                            }
+                        }}/>
+                        <button id="search-button" onClick={() => setSearchQuery(query)}>Search</button>
                     </div>
                     <div className="filters">
                         <button
