@@ -90,8 +90,6 @@ h3, h2, h1{
     width: 100%;
 }
 
-/* ---------- Hero ---------- */
-
 .header{
     position: relative;
     width: 100%;
@@ -187,8 +185,6 @@ h3, h2, h1{
     background-color: var(--yellow-8);
 }
 
-/* ---------- Filters ---------- */
-
 .filters{
     position: relative;
     height: fit-content;
@@ -225,8 +221,6 @@ h3, h2, h1{
     color: var(--gold);
     border-bottom-color: var(--gold);
 }
-
-/* ---------- Roster ---------- */
 
 .chest{
     width: 100%;
@@ -277,6 +271,7 @@ h3, h2, h1{
     flex-direction: column;
     box-shadow: 0px 0px 0px var(--accent-color);
     outline: 0px solid var(--accent-color);
+    text-decoration: none;
 }
 
 .legend-profile:hover{
@@ -397,8 +392,6 @@ h3, h2, h1{
 .stats p{
     margin: 0;
 }
-
-/* ---------- Theme toggle ---------- */
 
 #theme-button{
     width: 50px;
