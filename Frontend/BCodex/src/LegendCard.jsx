@@ -3,7 +3,7 @@ import { memo } from "react";
 const LegendCard = memo(function LegendCard({ legend }) {
     return (
         <a
-            href={`/legend.html?id=${legend["ID"]}`}
+            href={`legend.html?id=${legend["ID"]}`}
             data-index={legend["ID"]}
             className="legend-profile"
             style={{ "--accent-color": legend["AccentColor"] }}
