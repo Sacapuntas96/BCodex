@@ -5,7 +5,9 @@ import weapons from './weapons.json'
 import LegendCard from './LegendCard'
 
 function App() {
-    const [selected_theme, ChangeTheme] = useState('dark')
+    let saved_theme = localStorage.getItem('stored_theme')
+
+    const [selected_theme, ChangeTheme] = useState(saved_theme ? saved_theme : 'dark')
 
     const [selected_weapon, selectWeapon] = useState("All")
     const [query, setQuery] = useState('')
@@ -21,6 +23,7 @@ function App() {
 
     useEffect(() =>{
         document.documentElement.setAttribute('data-theme', selected_theme)
+        localStorage.setItem('store_theme', selected_theme)
     }, [selected_theme])
 
     return (
@@ -72,7 +75,7 @@ function App() {
                     </div>
                 </div>
             </div>
-            <button id="theme-button" onClick={() => ChangeTheme(selected_theme == 'dark' ? 'light' : 'dark')}></button>
+            <button id="theme-button" onClick={() => {ChangeTheme(selected_theme == 'dark' ? 'light' : 'dark')}}></button>
         </>
     )
 }

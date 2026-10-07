@@ -10,11 +10,14 @@ function getOrderedEntries(legend, prefix) {
 }
 
 function Legend() {
-    const [selected_theme, ChangeTheme] = useState('dark')
+    let saved_theme = localStorage.getItem('stored_theme')
+
+    const [selected_theme, ChangeTheme] = useState(saved_theme ? saved_theme : 'dark')
     const [legend, setLegend] = useState(null)
 
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', selected_theme)
+        localStorage.setItem('stored_theme', selected_theme)
     }, [selected_theme])
 
     useEffect(() => {
@@ -79,7 +82,7 @@ function Legend() {
                     </div>
                 </div>
             </div>
-            <button id="theme-button" onClick={() => ChangeTheme(selected_theme === 'dark' ? 'light' : 'dark')}></button>
+            <button id="theme-button" onClick={() => {ChangeTheme(selected_theme == 'dark' ? 'light' : 'dark')}}></button>
         </>
     )
 }
