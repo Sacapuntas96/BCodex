@@ -75,7 +75,7 @@ function App() {
                     </div>
                 </div>
             </div>
-            <button id="theme-button" onClick={() => {ChangeTheme(selected_theme == 'dark' ? 'light' : 'dark')}}></button>
+            <button id="theme-button" onClick={() => {ChangeTheme(selected_theme == 'dark' ? 'light' : 'dark')}} style={{"backgroundImage" : `url(src/assets/Icons/${selected_theme === 'dark' ? 'light' : 'dark'}-theme-icon.svg)`}}></button>
         </>
     )
 }

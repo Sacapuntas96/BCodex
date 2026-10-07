@@ -319,7 +319,6 @@ h3, h2, h1{
     border-radius: 25px;
     border: 1px solid var(--grey-5);
     transition: 0.2s ease;
-    background-image: url(../Images/theme_icon.svg);
     background-position: center;
     background-size: 55%;
     background-repeat: no-repeat;
