@@ -109,6 +109,7 @@ h3, h2, h1{
     clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
     display: flex;
     align-items: flex-end;
+    transform: translateZ(0); /* smoother clip-path edge */
 }
 
 .legend-hero::before{
@@ -140,11 +141,20 @@ h3, h2, h1{
     z-index: 0;
 }
 
+
+
 .legend-hero::after{
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, var(--grey-2) 5%, transparent 65%);
+    background: linear-gradient(to top,
+        var(--grey-2) 5%,
+        color-mix(in srgb, var(--grey-2) 88%, transparent) 15%,
+        color-mix(in srgb, var(--grey-2) 72%, transparent) 25%,
+        color-mix(in srgb, var(--grey-2) 54%, transparent) 35%,
+        color-mix(in srgb, var(--grey-2) 36%, transparent) 45%,
+        color-mix(in srgb, var(--grey-2) 20%, transparent) 55%,
+        transparent 65%);
     z-index: 1;
 }
 

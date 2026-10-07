@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import './legend.css'
+import './Legend.css'
 import legends_data from './data.json'
 
 function getOrderedEntries(legend, prefix) {
