@@ -23,7 +23,7 @@ function App() {
 
     useEffect(() =>{
         document.documentElement.setAttribute('data-theme', selected_theme)
-        localStorage.setItem('store_theme', selected_theme)
+        localStorage.setItem('stored_theme', selected_theme)
     }, [selected_theme])
 
     return (
